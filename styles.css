@@ -1,0 +1,246 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: linear-gradient(120deg, #89f7fe, #ffffff);
+    animation: gradientBackground 15s ease infinite;
+    background-size: 400% 400%;
+    position: relative;
+}
+
+@keyframes gradientBackground {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+/* 3D Transforming X and O */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(360deg);
+    }
+}
+
+.background-symbol {
+    position: absolute;
+    font-size: 100px;
+    opacity: 0.1;
+    animation: float 5s infinite ease-in-out;
+    color: red; /* Default color for X */
+    pointer-events: none; /* Disable pointer events */
+}
+
+.o-symbol {
+    color: blue;
+}
+
+.x1 { top: 10%; left: 20%; animation-duration: 6s; }
+.x2 { top: 50%; left: 70%; animation-duration: 7s; }
+.x3 { top: 80%; left: 30%; animation-duration: 8s; }
+
+.o1 { top: 20%; left: 80%; animation-duration: 5s; }
+.o2 { top: 60%; left: 40%; animation-duration: 6.5s; }
+.o3 { top: 90%; left: 10%; animation-duration: 7.5s; }
+
+
+h1, h2 {
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+nav a[data-route-link]:hover {
+    color: #0056b3;
+}
+
+/* Additional styling for the first and last child elements */
+nav li:first-child {
+    padding: 10px 10px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+}
+
+nav li:last-child {
+    padding: 10px 10px;
+    border: 2px solid #555;
+    border-radius: 10px;
+}
+
+/* Styles for navigation on top */
+
+.input-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.input-container input,label {
+    margin: 0 10px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+#submit-button {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#start-game-message {
+    display: none;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+/* Styles for the game board */
+
+table {
+    width: 50%;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+#gameBoardContainer {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.grid {
+    stroke: black;
+    stroke-width: 2;
+    z-index: 100;
+}
+
+#gameBoard .cell {
+    stroke: white;
+    fill: white;
+    cursor: pointer;
+}
+
+@keyframes blink {
+    0% { fill: red; }
+    50% { fill: none; }
+    100% { fill: red; }
+}
+
+.blink {
+    animation: blink 0.5s ease-in-out 3;
+}
+
+/*todo: modify this css code so that it interacts with the svg manipulations well*/
+/*.cell {*/
+/*    fill: none;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.cell.occupied {*/
+/*    fill: red;*/
+/*}*/
+
+
+/* Styles for after game actions */
+#winner-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#winner-svg {
+    width: 200px;
+    height: 200px;
+}
+
+#play-again-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Styles for devices with a maximum width of 600px */
+@media only screen and (max-width: 600px) {
+    /* Adjustments for smaller screens */
+    body {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav li {
+        margin: 10px 0;
+    }
+
+    .input-container input,label {
+        flex-direction: column;
+        width: calc(50% - 20px);
+    }
+}
+
+/* Styles for devices with a minimum width of 601px and a maximum width of 1024px */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    /* Adjustments for medium-sized screens */
+    nav ul {
+        justify-content: center;
+    }
+}
+
+/* Styles for devices with a minimum width of 1025px */
+@media only screen and (min-width: 1025px) {
+    /* Adjustments for large screens */
+    nav ul {
+        justify-content: center;
+    }
+
+    .input-container input,label {
+        width: 200px;
+    }
+}
+

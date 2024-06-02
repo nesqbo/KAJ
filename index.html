@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+    <link rel="icon" type="image/avif" href="miscellaneous/85535e05d1f130b16751c8308cfbb19b.avif">
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+
+    <nav>
+        <ul>
+            <li><a data-route-link href="?page=leaderboard">Leaderboard</a></li>
+            <li><a data-route-link href="?page=game">Game</a></li>
+        </ul>
+
+        <div class="input-container">
+                <label for="username1">1st player's username:</label>
+            <input type="text" id="username1" placeholder="1st player's username" required autofocus>
+                <label for="username2">2nd player's username:</label>
+            <input type="text" id="username2" placeholder="2nd player's username" required>
+            <button id="submit-button">Save names</button>
+            <div id="error-message" style="color: red; display: none;">Both usernames are required!</div>
+        </div>
+
+        <div id="start-game-message" style="display: none;">You can start playing now!</div>,
+
+    </nav>
+
+    <hr>
+    <!--will be replaced with appropriate page based on chosen nav link-->
+    <main id="content"></main>
+
+<!--    miscelaneous/user experince things -->
+    <div id="winner-container" style="display: none;"></div>
+    <button id="play-again-button" style="display: none;">Play Again</button>
+    <div id="background-symbols"></div>
+
+
+    <script type="text/javascript">
+// global variables for easier manipulation of gameState
+        game = null;
+        const gameSound = new Audio("miscelanious/barbie_tracks.mp3");
+        let gameSoundStarted = false;
+        let gameStarted = false;
+
+        function checkPlayerAction(game, gameBoard){
+            gameBoard.addEventListener("click", (event) => game.occupyIndex(event));
+        }
+    </script>
+    <script src="js/input.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/miscellaneous.js"></script>
+</body>
+</html>
